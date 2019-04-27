@@ -13,7 +13,7 @@ public class ProveedorServicio implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "IDPROVEEDORSERVICIO")
-    private Integer idProvedorServicio;
+    private Integer idProveedorServicio;
 
     @Column(name = "RUC")
     @Size(max = 13)
@@ -41,7 +41,7 @@ public class ProveedorServicio implements Serializable {
     }
 
     public ProveedorServicio(Integer id) {
-        this.idProvedorServicio = id;
+        this.idProveedorServicio = id;
     }
 
 }
