@@ -5,7 +5,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.List;
 @Entity
 @Table(name="CUENTAVIVIENDA")
 public class CuentaVivienda implements Serializable {
