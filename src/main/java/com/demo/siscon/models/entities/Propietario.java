@@ -1,6 +1,5 @@
 package com.demo.siscon.models.entities;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -8,10 +7,12 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
-
-public class Propietario {
+@Entity
+@Table(name="PROPIETARIO")
+public class Propietario implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
