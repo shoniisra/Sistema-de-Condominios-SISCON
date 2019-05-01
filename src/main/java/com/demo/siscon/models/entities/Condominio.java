@@ -130,6 +130,7 @@ public class Condominio implements Serializable {
 
     public void setViviendas(List<Vivienda> viviendas) {
         this.viviendas = viviendas;
+    }
 
     public List<ProveedorServicio> getProveedoresServicio() {
         return proveedoresServicio;
