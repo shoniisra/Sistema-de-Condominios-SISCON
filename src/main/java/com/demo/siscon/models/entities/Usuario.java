@@ -43,6 +43,9 @@ public class Usuario implements Serializable {
     @NotEmpty
     private String cargo;
 
+    @OneToOne
+    @MapsId
+    private Propietario propietario;
 
 //    @JoinColumn(name="IDMEDICO", referencedColumnName = "IDPERSONA")
 //    @ManyToOne
@@ -105,5 +108,13 @@ public class Usuario implements Serializable {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
     }
 }

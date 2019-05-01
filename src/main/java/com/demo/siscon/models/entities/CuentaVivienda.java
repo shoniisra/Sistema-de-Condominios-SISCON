@@ -40,16 +40,9 @@ public class CuentaVivienda implements Serializable {
     @Temporal(TemporalType.DATE)
     private Calendar fechaPagoAlicuota;
 
-//    @JoinColumn(name="IDMEDICO", referencedColumnName = "IDPERSONA")
-//    @ManyToOne
-//    private Medico medico;
-//
-//    @JoinColumn(name="IDPACIENTE", referencedColumnName = "IDPERSONA")
-//    @ManyToOne
-//    private Paciente paciente;
-
-//    @OneToMany(mappedBy="cuentavivienda", fetch=FetchType.LAZY)
-//    private List<DetalleCuentaVivienda> detalles;
+    @JoinColumn(name="IDVIVIENDA", referencedColumnName = "IDVIVIENDA")//claves foraneas
+    @ManyToOne
+    private Vivienda vivienda;
 
     public CuentaVivienda() {
 
@@ -109,5 +102,13 @@ public class CuentaVivienda implements Serializable {
 
     public void setFechaPagoAlicuota(Calendar fechaPagoAlicuota) {
         this.fechaPagoAlicuota = fechaPagoAlicuota;
+    }
+
+    public Vivienda getVivienda() {
+        return vivienda;
+    }
+
+    public void setVivienda(Vivienda vivienda) {
+        this.vivienda = vivienda;
     }
 }
