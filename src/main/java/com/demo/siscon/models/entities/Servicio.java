@@ -3,7 +3,8 @@ package com.demo.siscon.models.entities;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-
+@Entity
+@Table(name="SERVICIO")
 public class Servicio implements Serializable {
 
     private static final long serialVersionUID = 1L;

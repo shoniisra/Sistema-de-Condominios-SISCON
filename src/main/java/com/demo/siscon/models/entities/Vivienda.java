@@ -3,10 +3,12 @@ package com.demo.siscon.models.entities;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
-
-public class Vivienda {
+@Entity
+@Table(name="VIVIENDA")
+public class Vivienda implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
