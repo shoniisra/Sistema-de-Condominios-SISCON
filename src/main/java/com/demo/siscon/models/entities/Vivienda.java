@@ -63,8 +63,16 @@ public class Vivienda implements Serializable {
 //    @ManyToOne
 //    private Paciente paciente;
 
-//    @OneToMany(mappedBy="vivienda", fetch=FetchType.LAZY)
-//    private List<DetalleVivienda> detalles;
+
+    @OneToMany(mappedBy="vivienda", fetch=FetchType.LAZY)
+    private List<CuentaVivienda> cuentas;
+
+    @OneToMany(mappedBy="vivienda", fetch=FetchType.LAZY)
+    private List<Propietario> propietarios;
+
+    @JoinColumn(name="IDCONDOMINIO", referencedColumnName = "IDCONDOMINIO")//claves foraneas
+    @ManyToOne
+    private Condominio condominio;
 
     public Vivienda() {
 
@@ -156,5 +164,29 @@ public class Vivienda implements Serializable {
 
     public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
+    }
+
+    public List<CuentaVivienda> getCuentas() {
+        return cuentas;
+    }
+
+    public void setCuentas(List<CuentaVivienda> cuentas) {
+        this.cuentas = cuentas;
+    }
+
+    public List<Propietario> getPropietarios() {
+        return propietarios;
+    }
+
+    public void setPropietarios(List<Propietario> propietarios) {
+        this.propietarios = propietarios;
+    }
+
+    public Condominio getCondominio() {
+        return condominio;
+    }
+
+    public void setCondominio(Condominio condominio) {
+        this.condominio = condominio;
     }
 }

@@ -30,6 +30,10 @@ public class Servicio implements Serializable {
     @Size(max = 100)
     private String codigo;
 
+    @JoinColumn(name = "IDPROVEEDORSERVICIO", referencedColumnName = "IDPROVEEDORSERVICIO", nullable = false)
+    @ManyToOne
+    private ProveedorServicio proveedorServicio;
+
     public Servicio() {
     }
 
@@ -75,5 +79,9 @@ public class Servicio implements Serializable {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public ProveedorServicio getProveedorServicio() {
+        return proveedorServicio;
     }
 }

@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Table(name="PROVEEDORSERVICIO")
 public class ProveedorServicio implements Serializable {
@@ -37,6 +39,13 @@ public class ProveedorServicio implements Serializable {
 
     @Column(name = "FRECUENCIA")
     private float frecuencia;
+
+    @JoinColumn(name = "IDCONDOMINIO", referencedColumnName = "IDCONDOMINIO", nullable = false)
+    @ManyToOne
+    private Condominio condominio;
+
+    @OneToMany(mappedBy = "proveedorServicio", fetch = FetchType.LAZY)
+    private List<Servicio> servicios;
 
     public ProveedorServicio() {
     }
@@ -99,5 +108,13 @@ public class ProveedorServicio implements Serializable {
 
     public void setFrecuencia(float frecuencia) {
         this.frecuencia = frecuencia;
+    }
+
+    public Condominio getCondominio() {
+        return condominio;
+    }
+
+    public List<Servicio> getServicios() {
+        return servicios;
     }
 }

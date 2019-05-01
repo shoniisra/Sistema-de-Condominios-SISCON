@@ -4,8 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.List;
+
 @Entity
 @Table(name="DETALLEGASTOCOMUN")
 public class DetalleGastoComun implements Serializable {
@@ -47,6 +46,11 @@ public class DetalleGastoComun implements Serializable {
 
 //    @OneToMany(mappedBy="detallegastocomun", fetch=FetchType.LAZY)
 //    private List<DetalleDetalleGastoComun> detalles;
+    
+    /*RELACIONES*/
+    @JoinColumn(name="IDGASTOCOMUN", referencedColumnName="IDGASTOCOMUN")
+	@ManyToOne
+	private GastoComun gastoComun;
 
     public DetalleGastoComun() {
 

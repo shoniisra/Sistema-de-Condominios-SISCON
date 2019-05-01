@@ -2,6 +2,7 @@ package com.demo.siscon.models.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+
 import java.io.Serializable;
 
 @Entity
@@ -35,6 +36,11 @@ public class CuentaCondominio implements Serializable {
     @Column(name="TIPOCUENTA")
     @Size(max = 255)
     private String tipoCuenta;
+    
+    /*RELACIONES*/
+    @JoinColumn(name="IDCONDOMINIO", referencedColumnName="IDCONDOMINIO")
+	@ManyToOne
+	private Condominio condominio;
 
     public CuentaCondominio() {
     }

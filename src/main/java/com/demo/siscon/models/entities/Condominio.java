@@ -3,6 +3,7 @@ package com.demo.siscon.models.entities;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+
 import java.io.Serializable;
 
 public class Condominio implements Serializable {
@@ -42,6 +43,31 @@ public class Condominio implements Serializable {
     @Column(name = "EMAIL")
     @Email
     private String email;
+    
+    /*RELACIONES*/
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+	private List<CuentaCondominio> cuentasCondominios;
+    
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+	private List<Noticias> noticias;
+    
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+	private List<Vivienda> viviendas;
+    
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+	private List<GastoComun> gastosComunes;
+    
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+   	private List<ProveedorServicio> proveedoresServicio;
+
+    @OneToMany(mappedBy="condominio", fetch=FetchType.LAZY)
+    private List<Vivienda> viviendas;
+
+    @OneToMany(mappedBy = "condominio", fetch = FetchType.LAZY)
+    private List<ProveedorServicio> proveedoresServicio;
+
+    @OneToMany(mappedBy = "condominio", fetch = FetchType.LAZY)
+    private List<Noticia> noticias;
 
     public Condominio() {
     }
@@ -112,5 +138,22 @@ public class Condominio implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Vivienda> getViviendas() {
+        return viviendas;
+    }
+
+    public void setViviendas(List<Vivienda> viviendas) {
+        this.viviendas = viviendas;
+    }
+
+    public List<ProveedorServicio> getProveedoresServicio() {
+        return proveedoresServicio;
+    }
+
+    public List<Noticia> getNoticias() {
+        return noticias;
+
     }
 }
