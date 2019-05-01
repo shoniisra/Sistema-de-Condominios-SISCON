@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 @Entity
 @Table(name="NOTICIAS")
-public class Noticias implements Serializable {
+public class Noticia implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,10 +28,14 @@ public class Noticias implements Serializable {
     @Size(max = 100)
     private String urlImagen;
 
-    public Noticias() {
+    @JoinColumn(name = "IDCONDOMINIO", referencedColumnName = "IDCONDOMINIO", nullable = false)
+    @ManyToOne
+    private Condominio condominio;
+
+    public Noticia() {
     }
 
-    public Noticias(Integer id) {
+    public Noticia(Integer id) {
         this.idNoticia = id;
     }
 
@@ -65,5 +69,9 @@ public class Noticias implements Serializable {
 
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
+    }
+
+    public Condominio getCondominio() {
+        return condominio;
     }
 }

@@ -47,6 +47,12 @@ public class Condominio implements Serializable {
     @OneToMany(mappedBy="condominio", fetch=FetchType.LAZY)
     private List<Vivienda> viviendas;
 
+    @OneToMany(mappedBy = "condominio", fetch = FetchType.LAZY)
+    private List<ProveedorServicio> proveedoresServicio;
+
+    @OneToMany(mappedBy = "condominio", fetch = FetchType.LAZY)
+    private List<Noticia> noticias;
+
     public Condominio() {
     }
 
@@ -118,15 +124,20 @@ public class Condominio implements Serializable {
         this.email = email;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public List<Vivienda> getViviendas() {
         return viviendas;
     }
 
     public void setViviendas(List<Vivienda> viviendas) {
         this.viviendas = viviendas;
+    }
+
+    public List<ProveedorServicio> getProveedoresServicio() {
+        return proveedoresServicio;
+    }
+
+    public List<Noticia> getNoticias() {
+        return noticias;
+
     }
 }
