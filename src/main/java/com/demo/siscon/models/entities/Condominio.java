@@ -7,6 +7,8 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
+@Entity
+@Table(name="CONDOMINIO")
 public class Condominio implements Serializable {
 
     private static final long serialVersionUID = 1L;

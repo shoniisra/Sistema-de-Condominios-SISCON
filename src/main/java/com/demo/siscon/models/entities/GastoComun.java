@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
+
 @Entity
 @Table(name="GASTOCOMUN")
 public class GastoComun implements Serializable {
