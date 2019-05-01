@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.demo.siscon.models.entities.DetalleGastoComun;;
 
-public interface IDetalleGastoComun extends CrudRepository<DetalleGastoComun, Integer> {
+public interface IDetalleGastoComunDAO extends CrudRepository<DetalleGastoComun, Integer> {
 
 }
