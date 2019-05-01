@@ -52,17 +52,13 @@ public class Propietario implements Serializable {
     @Column(name = "ESADMIN")
     private Boolean esAdmin;
 
+    @OneToOne(mappedBy = "propietario", cascade = CascadeType.ALL)
+    private Usuario usuario;
 
-//    @JoinColumn(name="IDMEDICO", referencedColumnName = "IDPERSONA")
-//    @ManyToOne
-//    private Medico medico;
-//
-//    @JoinColumn(name="IDPACIENTE", referencedColumnName = "IDPERSONA")
-//    @ManyToOne
-//    private Paciente paciente;
+    @JoinColumn(name="IDVIVIENDA", referencedColumnName = "IDVIVIENDA")//claves foraneas
+    @ManyToOne
+    private Vivienda vivienda;
 
-//    @OneToMany(mappedBy="propietario", fetch=FetchType.LAZY)
-//    private List<DetallePropietario> detalles;
 
     public Propietario() {
 
@@ -130,5 +126,21 @@ public class Propietario implements Serializable {
 
     public void setEsAdmin(Boolean esAdmin) {
         this.esAdmin = esAdmin;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Vivienda getVivienda() {
+        return vivienda;
+    }
+
+    public void setVivienda(Vivienda vivienda) {
+        this.vivienda = vivienda;
     }
 }
