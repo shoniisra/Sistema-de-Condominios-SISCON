@@ -2,13 +2,14 @@ package com.demo.siscon.models.services;
 
 import com.demo.siscon.models.dao.INoticiaDAO;
 import com.demo.siscon.models.entities.Noticia;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class NoticiaService implements INoticiaService {
-
+    @Autowired
     private INoticiaDAO dao;
 
     @Override

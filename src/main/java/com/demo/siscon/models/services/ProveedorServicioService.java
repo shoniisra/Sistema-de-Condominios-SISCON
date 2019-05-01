@@ -2,13 +2,14 @@ package com.demo.siscon.models.services;
 
 import com.demo.siscon.models.dao.IProveedorServicioDAO;
 import com.demo.siscon.models.entities.ProveedorServicio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ProveedorServicioService implements IProveedorServicioService {
-
+    @Autowired
     private IProveedorServicioDAO dao;
 
     @Override
