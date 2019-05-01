@@ -50,16 +50,16 @@ public class Condominio implements Serializable {
 	private List<CuentaCondominio> cuentasCondominios;
     
     @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
-	private List<Noticia> noticias;
-    
-    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
-	private List<Vivienda> viviendas;
-    
-    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
 	private List<GastoComun> gastosComunes;
     
     @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
    	private List<ProveedorServicio> proveedoresServicio;
+
+    @OneToMany(mappedBy="condominio", fetch=FetchType.LAZY)
+    private List<Vivienda> viviendas;
+
+    @OneToMany(mappedBy = "condominio", fetch = FetchType.LAZY)
+    private List<Noticia> noticias;
 
     public Condominio() {
     }
