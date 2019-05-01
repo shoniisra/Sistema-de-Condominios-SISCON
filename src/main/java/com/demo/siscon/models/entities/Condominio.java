@@ -5,6 +5,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Condominio implements Serializable {
 
@@ -49,12 +50,6 @@ public class Condominio implements Serializable {
 	private List<CuentaCondominio> cuentasCondominios;
     
     @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
-	private List<Noticias> noticias;
-    
-    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
-	private List<Vivienda> viviendas;
-    
-    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
 	private List<GastoComun> gastosComunes;
     
     @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
@@ -62,9 +57,6 @@ public class Condominio implements Serializable {
 
     @OneToMany(mappedBy="condominio", fetch=FetchType.LAZY)
     private List<Vivienda> viviendas;
-
-    @OneToMany(mappedBy = "condominio", fetch = FetchType.LAZY)
-    private List<ProveedorServicio> proveedoresServicio;
 
     @OneToMany(mappedBy = "condominio", fetch = FetchType.LAZY)
     private List<Noticia> noticias;
