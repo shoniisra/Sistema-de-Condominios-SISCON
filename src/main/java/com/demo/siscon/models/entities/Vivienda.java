@@ -67,6 +67,9 @@ public class Vivienda implements Serializable {
     @OneToMany(mappedBy="vivienda", fetch=FetchType.LAZY)
     private List<CuentaVivienda> cuentas;
 
+    @OneToMany(mappedBy="vivienda", fetch=FetchType.LAZY)
+    private List<Propietario> propietarios;
+
     public Vivienda() {
 
     }
@@ -165,5 +168,13 @@ public class Vivienda implements Serializable {
 
     public void setCuentas(List<CuentaVivienda> cuentas) {
         this.cuentas = cuentas;
+    }
+
+    public List<Propietario> getPropietarios() {
+        return propietarios;
+    }
+
+    public void setPropietarios(List<Propietario> propietarios) {
+        this.propietarios = propietarios;
     }
 }

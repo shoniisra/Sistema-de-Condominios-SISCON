@@ -55,6 +55,10 @@ public class Propietario implements Serializable {
     @OneToOne(mappedBy = "propietario", cascade = CascadeType.ALL)
     private Usuario usuario;
 
+    @JoinColumn(name="IDVIVIENDA", referencedColumnName = "IDVIVIENDA")//claves foraneas
+    @ManyToOne
+    private Vivienda vivienda;
+
 
     public Propietario() {
 
@@ -130,5 +134,13 @@ public class Propietario implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Vivienda getVivienda() {
+        return vivienda;
+    }
+
+    public void setVivienda(Vivienda vivienda) {
+        this.vivienda = vivienda;
     }
 }
