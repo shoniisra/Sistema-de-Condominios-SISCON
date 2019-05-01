@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 
 public class Condominio implements Serializable {
 
@@ -42,6 +43,9 @@ public class Condominio implements Serializable {
     @Column(name = "EMAIL")
     @Email
     private String email;
+
+    @OneToMany(mappedBy="condominio", fetch=FetchType.LAZY)
+    private List<Vivienda> viviendas;
 
     public Condominio() {
     }
@@ -112,5 +116,17 @@ public class Condominio implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public List<Vivienda> getViviendas() {
+        return viviendas;
+    }
+
+    public void setViviendas(List<Vivienda> viviendas) {
+        this.viviendas = viviendas;
     }
 }

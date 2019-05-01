@@ -70,6 +70,10 @@ public class Vivienda implements Serializable {
     @OneToMany(mappedBy="vivienda", fetch=FetchType.LAZY)
     private List<Propietario> propietarios;
 
+    @JoinColumn(name="IDCONDOMINIO", referencedColumnName = "IDCONDOMINIO")//claves foraneas
+    @ManyToOne
+    private Condominio condominio;
+
     public Vivienda() {
 
     }
@@ -176,5 +180,13 @@ public class Vivienda implements Serializable {
 
     public void setPropietarios(List<Propietario> propietarios) {
         this.propietarios = propietarios;
+    }
+
+    public Condominio getCondominio() {
+        return condominio;
+    }
+
+    public void setCondominio(Condominio condominio) {
+        this.condominio = condominio;
     }
 }
