@@ -3,7 +3,9 @@ package com.demo.siscon.models.entities;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class Condominio implements Serializable {
 
@@ -42,6 +44,22 @@ public class Condominio implements Serializable {
     @Column(name = "EMAIL")
     @Email
     private String email;
+    
+    /*RELACIONES*/
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+	private List<CuentaCondominio> cuentasCondominios;
+    
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+	private List<Noticias> noticias;
+    
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+	private List<Vivienda> viviendas;
+    
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+	private List<GastoComun> gastosComunes;
+    
+    @OneToMany(mappedBy="condominio", fetch = FetchType.LAZY)
+   	private List<ProveedorServicio> proveedoresServicio;
 
     public Condominio() {
     }

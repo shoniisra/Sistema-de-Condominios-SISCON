@@ -51,6 +51,15 @@ public class GastoComun implements Serializable {
 
 //    @OneToMany(mappedBy="gastocomun", fetch=FetchType.LAZY)
 //    private List<DetalleGastoComun> detalles;
+    
+
+    /*RELACIONES*/
+    @JoinColumn(name="IDCONDOMINIO", referencedColumnName="IDCONDOMINIO")
+	@ManyToOne
+	private Condominio condominio;
+    
+    @OneToMany(mappedBy="gastoComun", fetch = FetchType.LAZY)
+   	private List<DetalleGastoComun> detallesGastoComun;
 
     public GastoComun() {
 
