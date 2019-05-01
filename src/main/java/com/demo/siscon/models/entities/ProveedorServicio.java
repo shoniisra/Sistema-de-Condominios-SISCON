@@ -4,7 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-
+@Entity
+@Table(name="PROVEEDORSERVICIO")
 public class ProveedorServicio implements Serializable {
 
     private static final long serialVersionUID = 1L;

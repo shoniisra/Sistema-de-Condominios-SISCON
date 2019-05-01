@@ -3,10 +3,12 @@ package com.demo.siscon.models.entities;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
-
-public class DetalleGastoComun {
+@Entity
+@Table(name="DETALLEGASTOCOMUN")
+public class DetalleGastoComun implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
