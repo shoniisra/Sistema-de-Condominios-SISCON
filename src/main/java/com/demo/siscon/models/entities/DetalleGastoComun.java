@@ -103,4 +103,14 @@ public class DetalleGastoComun implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+	public GastoComun getGastoComun() {
+		return gastoComun;
+	}
+
+	public void setGastoComun(GastoComun gastoComun) {
+		this.gastoComun = gastoComun;
+	}
+    
+    
 }

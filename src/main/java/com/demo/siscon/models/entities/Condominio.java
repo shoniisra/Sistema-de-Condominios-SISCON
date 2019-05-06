@@ -134,20 +134,45 @@ public class Condominio implements Serializable {
         this.email = email;
     }
 
-    public List<Vivienda> getViviendas() {
-        return viviendas;
-    }
+	public List<CuentaCondominio> getCuentasCondominios() {
+		return cuentasCondominios;
+	}
 
-    public void setViviendas(List<Vivienda> viviendas) {
-        this.viviendas = viviendas;
-    }
+	public void setCuentasCondominios(List<CuentaCondominio> cuentasCondominios) {
+		this.cuentasCondominios = cuentasCondominios;
+	}
 
-    public List<ProveedorServicio> getProveedoresServicio() {
-        return proveedoresServicio;
-    }
+	public List<GastoComun> getGastosComunes() {
+		return gastosComunes;
+	}
 
-    public List<Noticia> getNoticias() {
-        return noticias;
+	public void setGastosComunes(List<GastoComun> gastosComunes) {
+		this.gastosComunes = gastosComunes;
+	}
 
-    }
+	public List<ProveedorServicio> getProveedoresServicio() {
+		return proveedoresServicio;
+	}
+
+	public void setProveedoresServicio(List<ProveedorServicio> proveedoresServicio) {
+		this.proveedoresServicio = proveedoresServicio;
+	}
+
+	public List<Vivienda> getViviendas() {
+		return viviendas;
+	}
+
+	public void setViviendas(List<Vivienda> viviendas) {
+		this.viviendas = viviendas;
+	}
+
+	public List<Noticia> getNoticias() {
+		return noticias;
+	}
+
+	public void setNoticias(List<Noticia> noticias) {
+		this.noticias = noticias;
+	}
+
+    
 }

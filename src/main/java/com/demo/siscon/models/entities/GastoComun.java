@@ -121,4 +121,22 @@ public class GastoComun implements Serializable {
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
+
+	public Condominio getCondominio() {
+		return condominio;
+	}
+
+	public void setCondominio(Condominio condominio) {
+		this.condominio = condominio;
+	}
+
+	public List<DetalleGastoComun> getDetallesGastoComun() {
+		return detallesGastoComun;
+	}
+
+	public void setDetallesGastoComun(List<DetalleGastoComun> detallesGastoComun) {
+		this.detallesGastoComun = detallesGastoComun;
+	}
+    
+    
 }
