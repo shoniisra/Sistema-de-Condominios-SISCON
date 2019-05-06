@@ -50,7 +50,7 @@ public class UsuarioController {
         model.addAttribute("usuario",usuario);
         return "usuario/form";
     }
-    @GetMapping(value="/delete" )
+    @GetMapping(value="/delete/{id}" )
     public String delete(@PathVariable(value = "id") Integer id,
                          Model model){
         try{

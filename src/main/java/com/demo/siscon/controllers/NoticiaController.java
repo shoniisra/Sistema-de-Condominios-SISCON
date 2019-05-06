@@ -50,7 +50,7 @@ public class NoticiaController {
         model.addAttribute("noticia",noticia);
         return "noticia/form";
     }
-    @GetMapping(value="/delete" )
+    @GetMapping(value="/delete/{id}" )
     public String delete(@PathVariable(value = "id") Integer id,
                          Model model){
         try{

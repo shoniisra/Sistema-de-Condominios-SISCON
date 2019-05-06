@@ -50,7 +50,7 @@ public class CuentaViviendaController {
         model.addAttribute("cuentavivienda",cuentavivienda);
         return "cuentavivienda/form";
     }
-    @GetMapping(value="/delete" )
+    @GetMapping(value="/delete/{id}" )
     public String delete(@PathVariable(value = "id") Integer id,
                          Model model){
         try{
