@@ -50,7 +50,7 @@ public class ViviendaController {
         model.addAttribute("vivienda",vivienda);
         return "vivienda/form";
     }
-    @GetMapping(value="/delete" )
+    @GetMapping(value="/delete/{id}" )
     public String delete(@PathVariable(value = "id") Integer id,
                          Model model){
         try{
