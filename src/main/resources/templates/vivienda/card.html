@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<div id="wrapper">
+    <header th:replace="layout :: header"></header>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Begin Page Content -->
+        <div class="container">
+            <div class="container-fluid">
+                <br />
+                <div class="card col-md-12">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="content col-sm-1">
+                                <i class="far fa-plus-square fa-2x"></i>
+                            </div>
+                            <h3 class="card-title col-sm-6" th:text="${vivienda.codigoVivienda}"></h3>
+                            <div class="col-sm-4">
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                                    <i class="fas fa-trash-alt"></i>&nbsp;Eliminar</button>
+                                <a class="btn btn-primary" th:href="@{/vivienda/list}"><i
+                                        class="fas fa-arrow-left"></i>&nbsp;Volver</a>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="idVivienda"
+                               th:value="${vivienda.idVivienda}" />
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="content col-sm-3 bg-light">
+                                        <i class="fas fa-vial"></i> <label class="h5 col-form-label">&nbsp;Codigo:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-text" th:text="${vivienda.codigoVivienda}"></h5>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="content col-sm-3 bg-light">
+                                        <i class="fas fa-dollar-sign"></i> <label
+                                            class="h5 col-form-label">&nbsp;NUMERO:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-text" th:text="${vivienda.numero}"></h5>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="content col-sm-3 bg-light">
+                                        <i class="fas fa-prescription-bottle"></i> <label
+                                            class="h5 col-form-label">PISO:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-text" th:text="${vivienda.piso}"></h5>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="content col-sm-3 bg-light">
+                                        <i class="fas fa-syringe"></i> <label
+                                            class="h5 col-form-label">NUMERO DE PERSONAS:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-text"
+                                            th:text="${vivienda.numeroPersonas}"></h5>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="content col-sm-3 bg-light">
+                                        <i class="fas fa-syringe"></i> <label
+                                            class="h5 col-form-label">PRECIO DE REFERENCIA:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-text"
+                                            th:text="${vivienda.precioReferencia}"></h5>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="content col-sm-3 bg-light">
+                                        <i class="fas fa-calendar-times"></i>
+                                        <label class="h5 col-form-label">&nbsp;TELEFONO:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-text"
+                                            th:text="${vivienda.telefono}"></h5>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group row">
+                                    <div class="content col-sm-3 bg-light">
+                                        <i class="fas fa-syringe"></i> <label
+                                            class="h5 col-form-label">LUGAR DE ESTACIONAMIENTO:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-text"
+                                            th:text="${vivienda.lugarEstacionamiento}"></h5>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="content col-sm-3 bg-light">
+                                        <i class="fas fa-syringe"></i> <label
+                                            class="h5 col-form-label">USO ESTACIONAMIENTO:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-text"
+                                            th:text="${vivienda.usoEstacionamiento}"></h5>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="deleteModal" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">¿Desea eliminar al vivienda?</h5>
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p th:text=${vivienda.codigoVivienda}></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                <a th:href="@{/vivienda/delete/} + ${vivienda.idVivienda}" class="btn btn-success">Confirmar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <footer th:replace="layout :: footer"></footer>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
