@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<div id="wrapper">
+    <header th:replace="layout :: header"></header>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Begin Page Content -->
+        <div class="container">
+            <div class="container-fluid">
+                <div th:replace="layout :: alert"></div>
+                <br />
+                <div class="card col-md-12">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="content col-sm-1">
+                                <i class="far fa-plus-square fa-2x"></i>
+                            </div>
+                            <h3 class="card-title col-sm-6" th:text="${title}"></h3>
+                            <div class="col-sm-4"></div>
+                        </div>
+                        <hr />
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th><i class="fas far fa-address-card"></i>&nbsp;Codigo</th>
+                                <th>&nbsp;Numero</th>
+                                <th>&nbsp;Piso</th>
+                                <th>&nbsp;Precio</th>
+                                <th>&nbsp;Estacionamiento</th>
+                                <th>&nbsp;Disponible</th>
+                                <th><a class="btn btn-sm btn-success" th:href="@{/vivienda/create}"><i class="fas fa-plus"></i>&nbsp;Nuevo</a></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each=" vivienda : ${lista}" >
+                                <td th:text="${vivienda.codigoVivienda}"></td>
+                                <td th:text="${vivienda.numero}"></td>
+                                <td th:text="${vivienda.piso}"></td>
+                                <td th:text="${vivienda.precioReferencia}" ></td>
+                                <td th:text="${vivienda.lugarEstacionamiento}" ></td>
+                                <td th:text="${vivienda.disponible}" ></td>
+                                <td>
+                                    <a class="btn btn-sm btn-success" title="Ver"
+                                       th:href="@{/vivienda/retrieve/} + ${vivienda.idVivienda}">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a class="btn btn-sm btn-primary" title="Editar"
+                                       th:href="@{/vivienda/update/} + ${vivienda.idVivienda}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+
+                                    <a class="btn btn-sm btn-warning" title="Eliminar"
+                                       th:href="@{/vivienda/delete/} + ${vivienda.idVivienda}">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><footer th:replace="layout :: footer"></footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>

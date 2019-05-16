@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<div id="wrapper">
+    <header th:replace="layout :: header"></header>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Begin Page Content -->
+        <div class="container">
+            <div class="container-fluid">
+                <br />
+                <div class="card col-md-12">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="content col-sm-1">
+                                <i class="far fa-plus-square fa-2x"></i>
+                            </div>
+                            <h3 class="card-title col-sm-6" th:text="${title}"></h3>
+                            <div class="col-sm-4"></div>
+                        </div>
+
+                        <form th:action="@{/vivienda/save}" th:object="${vivienda}" method="post">
+
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-tablets"></i>
+                                    <label class="h5 col-form-label">&nbsp;CODIGO VIVIENDA:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input required class="form-control" type="text"
+                                           th:field="*{codigoVivienda}"
+                                           th:errorclass="'form-control is-invalid'" />
+                                    <small class="invalid-feedback"
+                                           th:if="${#fields.hasErrors('codigoVivienda')}"
+                                           th:errors="*{codigoVivienda}"></small>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-vial"></i>
+                                    <label class="h5 col-form-label">&nbsp;NUMERO:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input required class="form-control" type="number" min="0"
+                                           th:field="*{numero}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-vial"></i>
+                                    <label required class="h5 col-form-label">&nbsp;PISO:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input class="form-control" type="number" min="0"
+                                           th:field="*{piso}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-vial"></i>
+                                    <label class="h5 col-form-label">&nbsp;NUMERO DE PERSONAS:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input class="form-control" type="number" min="0"
+                                           th:field="*{numeroPersonas}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-vial"></i>
+                                    <label class="h5 col-form-label">&nbsp;PRECIO DE REFERENCIA:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input class="form-control" type="number" min="0"
+                                           th:field="*{precioReferencia}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-vial"></i>
+                                    <label class="h5 col-form-label">&nbsp;TELEFONO:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input class="form-control" type="text"
+                                           th:field="*{telefono}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-vial"></i>
+                                    <label class="h5 col-form-label">&nbsp;LUGAR DE ESTACIONAMIENTO:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input class="form-control" type="text"
+                                           th:field="*{lugarEstacionamiento}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-vial"></i>
+                                    <label class="h5 col-form-label">&nbsp;USO ESTACIONAMIENTO:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input class="form-control" type="checkbox"
+                                           th:field="*{usoEstacionamiento}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="content col-sm-3">
+                                    <i class="fas fa-vial"></i>
+                                    <label class="h5 col-form-label">&nbsp;DISPONIBLE:</label>
+                                </div>
+                                <div class="content col-sm-6">
+                                    <input class="form-control" type="checkbox"
+                                           th:field="*{disponible}" />
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <a class="btn btn-danger"
+                                       th:href="@{/vivienda/list}">
+                                        <i class="fas fa-minus-circle"></i>&nbsp;Cancelar</a>
+                                    <button class="btn btn-success" type="submit">
+                                        <i class="fas fa-plus-circle"></i>&nbsp;Guardar
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" th:field="*{idVivienda}" />
+
+
+                        </form>
+
+                        <hr />
+                    </div>
+                </div>
+            </div>
+
+            <footer th:replace="layout :: footer"></footer>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
